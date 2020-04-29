@@ -9,7 +9,7 @@ public class SceneController : MonoBehaviour
     [SerializeField]
     private NavMeshSurface navMesh;
 
-    private char[,] curMap = Levels.Level3;
+    private char[,] curMap = Levels.Level4;
 
     void Start()
     {

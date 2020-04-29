@@ -8,6 +8,9 @@ public class PlayerController : Creature
     [SerializeField]
     private JoybuttonPlayer shotButton;
 
+    [SerializeField]
+    private BarScript bar;
+
     private CreatureFinder enemyFinder;
 
     private void Start()
@@ -16,6 +19,15 @@ public class PlayerController : Creature
 
         shotButton.ShootNotify += ShotButton_ShootNotify;
         shotButton.HoldShootNotify += ShotButton_HoldShootNotify;
+    }
+
+    private void Update()
+    {
+        bar.BarChange((float)Hp / MaxHp);
+        //if (Input.GetKeyDown(KeyCode.Q))
+        //{
+        //    bar.BarChange(0.5f);
+        //}
     }
 
     private void ShotButton_HoldShootNotify(Vector3 direction) =>
