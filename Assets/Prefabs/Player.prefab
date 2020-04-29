@@ -99,6 +99,8 @@ GameObject:
   - component: {fileID: 3962016783313354643}
   - component: {fileID: 3387397170213130863}
   - component: {fileID: 3940730512299269110}
+  - component: {fileID: 5469219031857732041}
+  - component: {fileID: 2699682695140193260}
   - component: {fileID: -367319732828624355}
   m_Layer: 8
   m_Name: Player
@@ -223,11 +225,12 @@ MonoBehaviour:
   attackSpeed: 0.2
   maxHp: 100
   hp: 0
-  cam: {fileID: 339894759}
   bullet: {fileID: 2113657778688749617, guid: 9f57110cabae8984dab43b034e61b6a8, type: 3}
   exit: {fileID: 8337060240571258595, guid: 48282449fcd128644a7cc6733dea16d2, type: 3}
   rifle: {fileID: 3387397170213130863}
+  shot: {fileID: 2699682695140193260}
   firingRange: 10
+  shotButton: {fileID: 5469219031857732041}
 --- !u!114 &3387397170213130863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,10 +256,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  joystick: {fileID: 0}
-  joybutton: {fileID: 0}
   rb: {fileID: -367319732828624355}
+--- !u!114 &5469219031857732041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3962016783313354640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 694f20c0155b3a049a83cde7e9c6ba25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Distance: 10
+--- !u!114 &2699682695140193260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3962016783313354640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff864a1c35bdf643b0fc778c06863f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 3601436374049095482, guid: 9f57110cabae8984dab43b034e61b6a8, type: 3}
+  bulletCount: 12
+  speed: 20
   distance: 10
+  angle: 30
 --- !u!54 &-367319732828624355
 Rigidbody:
   m_ObjectHideFlags: 0

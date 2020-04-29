@@ -7,6 +7,9 @@ TagManager:
   - Environment
   - MapObjects
   - Enemy
+  - Wall
+  - Ground
+  - Grass
   layers:
   - Default
   - TransparentFX

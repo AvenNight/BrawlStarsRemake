@@ -11,7 +11,7 @@ public class SceneController : MonoBehaviour
 
     void Start()
     {
-        sceneCreator.CreateScene(Levels.Level3);
+        sceneCreator.CreateScene(Levels.Level4);
         navMesh.BuildNavMesh();
         //Time.timeScale = 2f;
     }

@@ -2,27 +2,30 @@
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField]
-    private float lifeTime;
-    [SerializeField]
-    private float speed;
+    public float LifeTime;
+    public float Speed;
+
     private int damage;
+    private Vector3 direction;
 
     public void Shoot(Vector3 direction, int damage)
     {
-        this.GetComponent<Rigidbody>().velocity = direction.normalized * speed;
+        this.direction = direction;
         this.damage = damage;
-        Destroy(this.gameObject, lifeTime);
+        Destroy(this.gameObject, LifeTime);
     }
+
+    private void FixedUpdate() =>
+        transform.Translate(direction.normalized * Speed * Time.deltaTime);
 
     private void OnTriggerEnter(Collider other)
     {
         var tag = other.gameObject.tag;
+        if (tag == "Grass") return;
         if (tag == "Enemy")
         {
             var enemy = other.GetComponent<IDamaged>();
             enemy.TakeDamage(damage);
-            //Debug.Log("Enemy damaged TR");
         }
         Destroy(this.gameObject);
     }

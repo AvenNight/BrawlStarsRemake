@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
 {
-    public bool isAttack { get; set; }
+    public bool autoAttack { get; set; }
     public Vector3 Direction { get; set; }
     public int AttackPower { get; set; }
     public int Damage => Random.Range(1, AttackPower * 2);
@@ -15,7 +15,7 @@ public abstract class Weapon : MonoBehaviour
     {
         while (true)
         {
-            if (isAttack)
+            if (autoAttack)
                 Attack();
             yield return new WaitForSeconds(DelaySec);
         }
