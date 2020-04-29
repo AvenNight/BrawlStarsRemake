@@ -22,12 +22,6 @@ public abstract class Creature : MonoBehaviour, IDamaged
     protected int maxHp;
     public int MaxHp => maxHp;
 
-    [SerializeField]
-    private BarScript bar;
-
-    public event Action DeathNotify;
-
-    [SerializeField]
     protected int hp;
     public int Hp
     {
@@ -37,6 +31,11 @@ public abstract class Creature : MonoBehaviour, IDamaged
             hp = value > maxHp ? maxHp : value;
         }
     }
+
+    [SerializeField]
+    private BarScript bar;
+
+    public event Action DeathNotify;
 
     private void Awake()
     {

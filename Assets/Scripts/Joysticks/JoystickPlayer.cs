@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using UnityEngine;
 
 public class JoystickPlayer : MonoBehaviour
@@ -10,10 +11,8 @@ public class JoystickPlayer : MonoBehaviour
     [SerializeField]
     private Rigidbody rb;
 
-    private void Start()
-    {
-        joystick = FindObjectOfType<DynamicJoystick>();
-    }
+    private void Start() =>
+        joystick = FindObjectsOfType<DynamicJoystick>().Single(j => !(j is DynamicJoybutton));
 
     public void FixedUpdate()
     {

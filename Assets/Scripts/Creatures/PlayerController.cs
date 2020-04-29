@@ -1,9 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class PlayerController : Creature
 {
     [SerializeField]
-    private RangeWeapon weapon;
+    private RangeWeapon curWeapon;
+
+    //private HashSet<RangeWeapon> weapons; // была идея менять текущее оружие выбирая из списка
 
     [SerializeField]
     private JoybuttonPlayer shotButton;
@@ -19,10 +22,10 @@ public class PlayerController : Creature
     }
 
     private void ShotButton_HoldShootNotify(Vector3 direction) =>
-        weapon.Shoot(direction);
+        curWeapon.Shoot(direction);
 
     private void ShotButton_ShootNotify() =>
-        weapon.Shoot(enemyFinder.Objects.Count == 0 ? shotButton.Direction : enemyFinder.Direction);
+        curWeapon.Shoot(enemyFinder.Objects.Count == 0 ? shotButton.Direction : enemyFinder.Direction);
 
     private void FixedUpdate()
     {

@@ -29,8 +29,6 @@ public class JoybuttonPlayer : MonoBehaviour
     {
         if (joybutton.Direction == Vector2.zero) return;
         Debug.DrawLine(this.transform.position, this.transform.position + Direction.normalized * Distance, joybutton.Holded ? Color.blue : Color.red);
-        GL.Begin(GL.LINES);
-        LineRenderer lineRenderer = new LineRenderer();
         transform.forward = Direction;
     }
 

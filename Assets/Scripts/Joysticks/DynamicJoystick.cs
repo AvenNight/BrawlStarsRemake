@@ -13,9 +13,9 @@ public class DynamicJoystick : Joystick
 
     protected override void Start()
     {
+        startPosition = background.anchoredPosition;
         MoveThreshold = moveThreshold;
         base.Start();
-        startPosition = background.anchoredPosition;
     }
 
     public override void OnPointerDown(PointerEventData eventData)

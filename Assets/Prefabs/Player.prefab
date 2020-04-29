@@ -224,10 +224,10 @@ MonoBehaviour:
   speed: 5
   attackSpeed: 0.2
   maxHp: 100
-  hp: 0
-  weapon: {fileID: 2699682695140193260}
-  shotButton: {fileID: 5469219031857732041}
   bar: {fileID: 4863021314793619827}
+  hp: 0
+  curWeapon: {fileID: 2699682695140193260}
+  shotButton: {fileID: 5469219031857732041}
 --- !u!114 &3940730512299269110
 MonoBehaviour:
   m_ObjectHideFlags: 0
