@@ -7,6 +7,7 @@ public class JoybuttonPlayer : MonoBehaviour
     public Vector3 Direction => Vector3.forward * joybutton.Vertical + Vector3.right * joybutton.Horizontal;
 
     public float Distance = 10f;
+    public DrawCone DrawCone;
 
     public event Action<Vector3> HoldShootNotify;
     public event Action ShootNotify;
@@ -27,8 +28,13 @@ public class JoybuttonPlayer : MonoBehaviour
 
     public void FixedUpdate()
     {
-        if (joybutton.Direction == Vector2.zero) return;
-        Debug.DrawLine(this.transform.position, this.transform.position + Direction.normalized * Distance, joybutton.Holded ? Color.blue : Color.red);
+        if (joybutton.Direction == Vector2.zero)
+        {
+            DrawCone.Enable = false;
+            return;
+        }
+        DrawCone.Color = joybutton.Holded ? new Color(0, 0, 1, 0.33f) : new Color(1, 0, 0, 0.33f);
+        DrawCone.Enable = true;
         transform.forward = Direction;
     }
 

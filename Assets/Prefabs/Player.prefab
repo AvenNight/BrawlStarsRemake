@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 5469219031857732041}
   - component: {fileID: 2699682695140193260}
   - component: {fileID: -367319732828624355}
+  - component: {fileID: -447218543398403855}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -225,7 +226,6 @@ MonoBehaviour:
   attackSpeed: 0.2
   maxHp: 100
   bar: {fileID: 4863021314793619827}
-  hp: 0
   curWeapon: {fileID: 2699682695140193260}
   shotButton: {fileID: 5469219031857732041}
 --- !u!114 &3940730512299269110
@@ -255,6 +255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Distance: 10
+  DrawCone: {fileID: -447218543398403855}
 --- !u!114 &2699682695140193260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,6 +293,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-447218543398403855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3962016783313354640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80f6cb3c076ffc54f806215b613aa397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Angle: 45
+  Distance: 10
+  Enable: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1001 &589532313769614530
 PrefabInstance:
   m_ObjectHideFlags: 0
