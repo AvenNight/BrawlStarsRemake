@@ -9,16 +9,18 @@ public class SceneController : MonoBehaviour
     [SerializeField]
     private NavMeshSurface navMesh;
 
+    private char[,] curMap = Levels.Level3;
+
     void Start()
     {
-        sceneCreator.CreateScene(Levels.Level4);
+        sceneCreator.CreateScene(curMap);
         navMesh.BuildNavMesh();
         //Time.timeScale = 2f;
     }
 
     public void Refresh()
     {
-        sceneCreator.Refresh(Levels.Level3);
+        sceneCreator.Refresh(curMap);
     }
 
     void Update()

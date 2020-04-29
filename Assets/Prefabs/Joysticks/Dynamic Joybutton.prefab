@@ -242,3 +242,6 @@ MonoBehaviour:
   background: {fileID: 2445708119767943369}
   handle: {fileID: 2445708118871313315}
   moveThreshold: 1
+  Pressed: 0
+  Holded: 0
+  holdTimeSec: 0.25

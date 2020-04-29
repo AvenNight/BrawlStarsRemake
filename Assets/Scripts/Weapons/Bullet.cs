@@ -1,18 +1,22 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float LifeTime;
+    public int Damage;
+    public bool IsRndDmg;
+    private int damage => IsRndDmg ? Random.Range(1, Damage * 2 - 1) : Damage;
+    public float Distance;
     public float Speed;
+    public List<string> EnemyTags;
 
-    private int damage;
     private Vector3 direction;
 
-    public void Shoot(Vector3 direction, int damage)
+    public void Shoot(Vector3 direction)
     {
         this.direction = direction;
-        this.damage = damage;
-        Destroy(this.gameObject, LifeTime);
+        Destroy(this.gameObject, Distance / Speed);
     }
 
     private void FixedUpdate() =>
@@ -22,7 +26,7 @@ public class Bullet : MonoBehaviour
     {
         var tag = other.gameObject.tag;
         if (tag == "Grass") return;
-        if (tag == "Enemy")
+        if (EnemyTags.Contains(tag))
         {
             var enemy = other.GetComponent<IDamaged>();
             enemy.TakeDamage(damage);

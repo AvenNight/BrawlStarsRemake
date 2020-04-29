@@ -20,15 +20,9 @@ public class JoybuttonPlayer : MonoBehaviour
     private void Joybutton_PressNotify()
     {
         if (joybutton.Holded)
-        {
             HoldShootNotify?.Invoke(Direction);
-            Debug.Log(" Direct SHOOT !");
-        }
         else
-        {
             ShootNotify?.Invoke();
-            Debug.Log(" SHOOT !");
-        }
     }
 
     public void FixedUpdate()

@@ -139,7 +139,7 @@ MonoBehaviour:
   maxHp: 100
   hp: 0
   UpdateTime: 0.1
-  AggroDistance: 7
+  AggroDistance: 0
   AttackRange: 3
   weapon: {fileID: 5950163761574249346}
 --- !u!54 &8467951334957011098
