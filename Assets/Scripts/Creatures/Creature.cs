@@ -22,6 +22,9 @@ public abstract class Creature : MonoBehaviour, IDamaged
     protected int maxHp;
     public int MaxHp => maxHp;
 
+    [SerializeField]
+    private BarScript bar;
+
     public event Action DeathNotify;
 
     [SerializeField]
@@ -47,6 +50,7 @@ public abstract class Creature : MonoBehaviour, IDamaged
         var reducePercent = (0.05 * Defence) / (1 + 0.05 * Defence);
         damage = (int)Math.Round(damage - damage * reducePercent, 0);
         Hp -= damage;
+        bar.BarChange((float)Hp / MaxHp);
         Debug.Log($"{this.tag} taken {damage} damage (reduced {inputDamage - damage})");
         if (Hp <= 0) Destroy(this.gameObject, 0.1f);
     }

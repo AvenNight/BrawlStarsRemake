@@ -33,4 +33,6 @@ public class JoybuttonPlayer : MonoBehaviour
         LineRenderer lineRenderer = new LineRenderer();
         transform.forward = Direction;
     }
+
+    private void OnDestroy() => joybutton.PressNotify -= Joybutton_PressNotify;
 }
