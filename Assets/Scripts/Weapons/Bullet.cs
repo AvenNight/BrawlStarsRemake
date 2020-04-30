@@ -9,9 +9,18 @@ public class Bullet : MonoBehaviour
     private int damage => IsRndDmg ? Random.Range(1, Damage * 2 - 1) : Damage;
     public float Distance;
     public float Speed;
-    public List<string> EnemyTags;
+    public string[] EnemyTags;
 
     private Vector3 direction;
+
+    public void SetParams(int damage, bool isRndDmg, float distance, float speed, params string[] enemyTags)
+    {
+        Damage = damage;
+        IsRndDmg = isRndDmg;
+        Distance = distance;
+        Speed = speed;
+        EnemyTags = enemyTags;
+    }
 
     public void Shoot(Vector3 direction)
     {

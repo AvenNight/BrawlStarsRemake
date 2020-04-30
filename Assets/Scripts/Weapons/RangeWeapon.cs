@@ -3,7 +3,6 @@ using UnityEngine;
 
 public abstract class RangeWeapon : MonoBehaviour
 {
-
     [SerializeField] protected float distance;
     public float Distance => distance;
     [SerializeField] protected float angle;
@@ -14,6 +13,8 @@ public abstract class RangeWeapon : MonoBehaviour
     [SerializeField] protected float cooldownSec;
     protected bool isRecharging;
     protected int curAmmo;
+
+    protected virtual void Start() => curAmmo = maxAmmo;
 
     protected virtual void FixedUpdate()
     {

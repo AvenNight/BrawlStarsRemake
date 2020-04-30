@@ -5,14 +5,10 @@ using UnityEngine.AI;
 public abstract class Creature : MonoBehaviour, IDamaged
 {
     [SerializeField] protected NavMeshAgent agent;
-    [SerializeField] protected int attack;
-    public int Attack => attack;
     [SerializeField] protected int defence;
     public int Defence => defence;
     [SerializeField] protected float speed;
     public float Speed => speed;
-    [SerializeField] protected float attackSpeed;
-    public float AttackSpeed => attackSpeed;
     [SerializeField] protected int maxHp;
     public int MaxHp => maxHp;
 
