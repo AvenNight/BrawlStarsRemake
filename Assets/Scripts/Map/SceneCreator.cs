@@ -2,20 +2,13 @@
 
 public class SceneCreator : MonoBehaviour
 {
-    [SerializeField]
-    GameObject wall;
-    [SerializeField]
-    GameObject grass;
-    [SerializeField]
-    GameObject ground;
-    [SerializeField]
-    GameObject water;
-    [SerializeField]
-    GameObject player;
-    [SerializeField]
-    GameObject enemy;
-    [SerializeField]
-    GameObject exit;
+    [SerializeField] GameObject wall;
+    [SerializeField] GameObject grass;
+    [SerializeField] GameObject ground;
+    [SerializeField] GameObject water;
+    [SerializeField] GameObject player;
+    [SerializeField] GameObject enemy;
+    [SerializeField] GameObject exit;
 
     private float wallSize => 2.2f;
     private float groundLevel => -1f;

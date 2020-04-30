@@ -22,7 +22,7 @@ public class Shotgun : RangeWeapon
 
     public override void Shoot(Vector3 direction)
     {
-        if (curAmmo <= 0) return;
+        if (curAmmo <= 0 || direction == Vector3.zero) return;
         for (int i = 0; i < bulletCount; i++)
         {
             var rndQuaternion = Quaternion.AngleAxis(Random.Range(-angle / 2, angle / 2), Vector3.up);

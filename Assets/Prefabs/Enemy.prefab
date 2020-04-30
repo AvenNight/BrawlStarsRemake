@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2678201178636207491}
   - component: {fileID: 2678201178636207490}
   - component: {fileID: 8467951334957011098}
-  - component: {fileID: 5950163761574249346}
+  - component: {fileID: -8492098426933165677}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Enemy
@@ -142,7 +142,7 @@ MonoBehaviour:
   UpdateTime: 0.1
   AggroDistance: 15
   AttackRange: 3
-  weapon: {fileID: 5950163761574249346}
+  weapon: {fileID: -8492098426933165677}
 --- !u!54 &8467951334957011098
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -159,7 +159,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5950163761574249346
+--- !u!114 &-8492098426933165677
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2678201178636207492}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0909fd64b63066d4bb011be9fb8c31d3, type: 3}
+  m_Script: {fileID: 11500000, guid: 73ac28980c44b474ba1da46790c56811, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &12681993329301255

@@ -1,11 +1,3 @@
-/*
- * Rotates an object towards the currently active camera
- * 
- * 1. Attach CameraBillboard component to a canvas or a game object
- * 2. Specify the offset and you're done
- * 
- **/
-
 using UnityEngine;
 
 public class CameraBillboard : MonoBehaviour
@@ -16,13 +8,8 @@ public class CameraBillboard : MonoBehaviour
     public float OffsetToCamera;
     protected Vector3 localStartPosition;
 
-    // Use this for initialization
-    void Start()
-    {
-        localStartPosition = transform.localPosition;
-    }
+    void Start() => localStartPosition = transform.localPosition;
 
-    // Update is called once per frame
     void Update()
     {
         transform.LookAt(transform.position + Camera.main.transform.rotation * Vector3.forward,

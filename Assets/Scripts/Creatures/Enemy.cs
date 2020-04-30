@@ -7,15 +7,14 @@ public class Enemy : Creature
     public float AggroDistance;
     public float AttackRange;
 
-    [SerializeField]
-    private MeleeWeapon weapon;
+    [SerializeField] private MeleeAIWeapon weapon;
 
     private ObjectsFinder playersFinder;
 
     void Start()
     {
-        weapon.DelaySec = attackSpeed;
-        weapon.AttackPower = attack;
+        weapon.Cooldown = attackSpeed;
+        weapon.damage = attack;
 
         InvokeRepeating("UpdateEnemy", UpdateTime, UpdateTime);
     }

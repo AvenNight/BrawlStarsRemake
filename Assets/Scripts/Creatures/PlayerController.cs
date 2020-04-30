@@ -2,7 +2,7 @@
 
 public class PlayerController : Creature
 {
-    //private HashSet<RangeWeapon> weapons; // была идея менять текущее оружие выбирая из списка
+    //private HashSet<RangeWeapon> weapons; // была идея менять оружие выбирая из списка
     public RangeWeapon curWeapon;
     [SerializeField] private JoybuttonPlayer shotButton;
 
