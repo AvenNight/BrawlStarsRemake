@@ -143,7 +143,7 @@ MonoBehaviour:
   barHp: {fileID: 5440228152684612278}
   UpdateTimeAttack: 0.05
   UpdateTimeMove: 1.5
-  AggroDistance: 17
+  AggroDistance: 12
   AttackRange: 14
   WanderRadius: 10
   curWeapon: {fileID: 8986889303837001243}

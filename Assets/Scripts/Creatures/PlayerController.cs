@@ -10,6 +10,9 @@ public class PlayerController : Creature
 
     private void Start()
     {
+        GameObject.FindObjectOfType<CameraController>().Target = this.transform;
+
+
         enemyFinder = new CreatureFinder(this.gameObject, enemyTags);
         curWeapon.EnemyTags = enemyTags;
 
@@ -24,7 +27,7 @@ public class PlayerController : Creature
         curWeapon.Shoot(ShotDirection);
 
     private Vector3 ShotDirection =>
-        enemyFinder.VisibleObjects.Count == 0 ? shotButton.Direction : enemyFinder.DirectionToVisible;
+        enemyFinder.VisibleObjects.Count == 0 ? this.transform.forward.normalized : enemyFinder.DirectionToVisible;
 
     private void FixedUpdate()
     {

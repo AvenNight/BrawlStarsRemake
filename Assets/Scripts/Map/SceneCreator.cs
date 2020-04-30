@@ -21,13 +21,13 @@ public class SceneCreator : MonoBehaviour
         environment = GameObject.FindGameObjectWithTag("Environment");
         maps = GameObject.FindGameObjectWithTag("MapObjects");
         var curPos = startingPoint;
-        for (int x = 0; x < map.GetLength(0); x++)
+        for (int x = 0; x < map.GetLength(1); x++)
         {
             curPos.z = startingPoint.z;
-            for (int y = 0; y < map.GetLength(1); y++)
+            for (int y = 0; y < map.GetLength(0); y++)
             {
                 // Create Map Object
-                var mapObj = GetMapObjectByType(map[map.GetLength(1) - 1 - y, x], curPos);
+                var mapObj = GetMapObjectByType(map[map.GetLength(0) - 1 - y, x], curPos);
                 CreateObject(mapObj);
                 // Create Ground
                 if (init && mapObj?.Prefab != water)

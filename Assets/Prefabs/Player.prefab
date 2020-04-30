@@ -224,7 +224,7 @@ MonoBehaviour:
   agent: {fileID: 3962016783313354642}
   defence: 10
   speed: 5
-  maxHp: 100
+  maxHp: 500
   enemyTags:
   - Enemy
   barHp: {fileID: 4863021314793619827}
@@ -324,7 +324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a19bfa4ea76f414eab19e84a07de2b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Fade: 0.3
+  fade: 0
 --- !u!1001 &589532313769614530
 PrefabInstance:
   m_ObjectHideFlags: 0
