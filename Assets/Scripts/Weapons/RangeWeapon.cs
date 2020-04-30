@@ -14,6 +14,8 @@ public abstract class RangeWeapon : MonoBehaviour
     protected bool isRecharging;
     protected int curAmmo;
 
+    [HideInInspector] public string[] EnemyTags;
+
     protected virtual void Start() => curAmmo = maxAmmo;
 
     protected virtual void FixedUpdate()

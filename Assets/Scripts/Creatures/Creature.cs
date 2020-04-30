@@ -22,7 +22,8 @@ public abstract class Creature : MonoBehaviour, IDamaged
         }
     }
 
-    [SerializeField] private BarScript barHp;
+    [SerializeField] protected string[] enemyTags;
+    [SerializeField] protected BarScript barHp;
 
     public event Action DeathNotify;
 

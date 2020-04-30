@@ -221,11 +221,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 3962016783313354642}
-  attack: 20
   defence: 10
   speed: 5
-  attackSpeed: 0.2
   maxHp: 100
+  enemyTags:
+  - Enemy
   barHp: {fileID: 4863021314793619827}
   curWeapon: {fileID: 2699682695140193260}
   shotButton: {fileID: 5469219031857732041}
@@ -273,9 +273,8 @@ MonoBehaviour:
   barAmmo: {fileID: 609878407135840702}
   maxAmmo: 3
   cooldownSec: 1.25
+  EnemyTags: []
   bullet: {fileID: 3601436374049095482, guid: 9f57110cabae8984dab43b034e61b6a8, type: 3}
-  enemyTags:
-  - Enemy
   damage: 20
   isRndDmg: 1
   bulletCount: 8

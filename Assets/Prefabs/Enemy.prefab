@@ -110,7 +110,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.49999997
   m_Speed: 6
-  m_Acceleration: 15
+  m_Acceleration: 30
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -137,10 +137,14 @@ MonoBehaviour:
   defence: 6
   speed: 4
   maxHp: 100
+  enemyTags:
+  - Player
   barHp: {fileID: 5440228152684612278}
-  UpdateTime: 0.05
-  AggroDistance: 15
-  AttackRange: 15
+  UpdateTimeAttack: 0.05
+  UpdateTimeMove: 1.5
+  AggroDistance: 17
+  AttackRange: 14
+  WanderRadius: 10
   curWeapon: {fileID: 8986889303837001243}
 --- !u!54 &8467951334957011098
 Rigidbody:
@@ -174,13 +178,12 @@ MonoBehaviour:
   angle: 0
   barAmmo: {fileID: 8404102235019412523}
   maxAmmo: 1
-  cooldownSec: 0.65
+  cooldownSec: 0.7
+  EnemyTags: []
   bullet: {fileID: 3601436374049095482, guid: 9f57110cabae8984dab43b034e61b6a8, type: 3}
-  enemyTags:
-  - Player
-  damage: 20
+  damage: 25
   isRndDmg: 1
-  speed: 20
+  speed: 25
 --- !u!1001 &12681993329301255
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -15,9 +15,11 @@ public class ObjectsFinder
 
     public float DistanceToNearest => thisObj.gameObject.GetDistanceTo(NearestObject);
 
-    public ObjectsFinder(GameObject from, string tag)
+    public ObjectsFinder(GameObject from, params string[] tags)
     {
         thisObj = from;
-        objects = GameObject.FindGameObjectsWithTag(tag).ToList();
+        objects = new List<GameObject>();
+        foreach (var tag in tags)
+            objects.AddRange(GameObject.FindGameObjectsWithTag(tag));
     }
 }

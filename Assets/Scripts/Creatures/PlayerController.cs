@@ -10,7 +10,8 @@ public class PlayerController : Creature
 
     private void Start()
     {
-        enemyFinder = new CreatureFinder(this.gameObject, "Enemy");
+        enemyFinder = new CreatureFinder(this.gameObject, enemyTags);
+        curWeapon.EnemyTags = enemyTags;
 
         shotButton.ShootNotify += ShotButton_ShootNotify;
         shotButton.HoldShootNotify += ShotButton_HoldShootNotify;
