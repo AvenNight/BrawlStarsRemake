@@ -14,7 +14,7 @@ public class JoybuttonPlayer : MonoBehaviour
 
     private void Start()
     {
-        curWeapon = this.GetComponent<PlayerController>().curWeapon;
+        curWeapon = this.GetComponent<Player>().curWeapon;
         joybutton = FindObjectOfType<DynamicJoybutton>();
         joybutton.PressUpNotify += Joybutton_PressUpNotify;
         joybutton.PressDownNotify += Joybutton_PressDownNotify;
@@ -40,7 +40,7 @@ public class JoybuttonPlayer : MonoBehaviour
         if (joybutton.Holded && joybutton.Input != Vector2.zero && DrawCone.Enable == false)
         {
             DrawCone.Enable = true;
-            DrawCone.Color = new Color(0, 0, 1, 0.4f);
+            DrawCone.Color = new Color(0, 1, 1, 0.4f);
         }
         if (joybutton.Direction == Vector2.zero) return;
         transform.forward = Direction;

@@ -127,10 +127,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 20
   IsRndDmg: 1
-  Distance: 12
+  Distance: 10
   Speed: 20
   EnemyTags:
-  - Player
+  - Enemy
 --- !u!135 &5992594368833887381
 SphereCollider:
   m_ObjectHideFlags: 0

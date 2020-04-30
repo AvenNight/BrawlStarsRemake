@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PlayerController : Creature
+public class Player : Creature
 {
     //private HashSet<RangeWeapon> weapons; // была идея менять оружие выбирая из списка
     public RangeWeapon curWeapon;
