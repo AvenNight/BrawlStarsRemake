@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : Creature
+public class EnemyWithAI : Creature
 {
     public float UpdateTimeAttack;
     public float UpdateTimeMove;
     public float AggroDistance;
+    private float curAggroDistance;
     public float AttackRange;
     public float WanderRadius;
 
@@ -17,6 +18,7 @@ public class Enemy : Creature
     void Start()
     {
         curWeapon.EnemyTags = enemyTags;
+        curAggroDistance = AggroDistance;
         InvokeRepeating("MovenentAI", 0f, UpdateTimeMove);
         InvokeRepeating("AttackAI", 0f, UpdateTimeAttack);
     }
@@ -24,7 +26,7 @@ public class Enemy : Creature
     private void MovenentAI()
     {
         if (!TryGetDirection(out direction)) return;
-        if (playersFinder.DistanceToNearest < AggroDistance)
+        if (playersFinder.DistanceToNearest < curAggroDistance)
             agent.SetDestination(playersFinder.NearestObject.transform.position);
         else
         {
@@ -36,14 +38,24 @@ public class Enemy : Creature
     private bool TryGetDirection(out Vector3 direction)
     {
         playersFinder = new CreatureFinder(this.gameObject, enemyTags);
-        bool result = playersFinder.Objects.Count != 0;
-        direction = result ? playersFinder.Direction : Vector3.zero;
-        return result;
+        if (playersFinder.Objects.Count == 0)
+        {
+            direction = Vector3.zero;
+            return false;
+        }
+        if (playersFinder.NearestObject.TryGetComponent(out IInvisible invisibility))
+        {
+            curAggroDistance = invisibility.Invisible ? AggroDistance / 3 : AggroDistance;
+            direction = invisibility.Invisible ? this.direction : playersFinder.Direction;
+        }
+        else
+            direction = playersFinder.Direction;
+        return true;
     }
 
     private Vector3 RandomNavSphere(Vector3 origin, float wanderRadius, int layermask)
     {
-        Vector3 randDirection = UnityEngine.Random.insideUnitSphere * wanderRadius;
+        Vector3 randDirection = Random.insideUnitSphere * wanderRadius;
         NavMesh.SamplePosition(randDirection + origin, out NavMeshHit navHit, wanderRadius, layermask);
         return navHit.position;
     }

@@ -24,7 +24,7 @@ public class PlayerController : Creature
         curWeapon.Shoot(ShotDirection);
 
     private Vector3 ShotDirection =>
-        enemyFinder.Objects.Count == 0 ? shotButton.Direction : enemyFinder.Direction;
+        enemyFinder.VisibleObjects.Count == 0 ? shotButton.Direction : enemyFinder.DirectionToVisible;
 
     private void FixedUpdate()
     {
