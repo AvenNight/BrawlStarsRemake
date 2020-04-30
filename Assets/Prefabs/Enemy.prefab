@@ -135,13 +135,12 @@ MonoBehaviour:
   agent: {fileID: 2678201178636207491}
   attack: 15
   defence: 6
-  speed: 6
+  speed: 8
   attackSpeed: 0.3
   maxHp: 100
-  bar: {fileID: 5440228152684612278}
-  hp: 0
+  barHp: {fileID: 5440228152684612278}
   UpdateTime: 0.1
-  AggroDistance: 10
+  AggroDistance: 15
   AttackRange: 3
   weapon: {fileID: 5950163761574249346}
 --- !u!54 &8467951334957011098
@@ -179,6 +178,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2678201178636207488}
     m_Modifications:
+    - target: {fileID: 6598913276753839083, guid: ff4620cd6d5295b4cbc822dfc933737d,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598913276753839083, guid: ff4620cd6d5295b4cbc822dfc933737d,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 6598913276753839084, guid: ff4620cd6d5295b4cbc822dfc933737d,
         type: 3}
       propertyPath: m_Color.r
@@ -188,6 +197,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.g
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598913277864638778, guid: ff4620cd6d5295b4cbc822dfc933737d,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598913277864638778, guid: ff4620cd6d5295b4cbc822dfc933737d,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6598913277864638779, guid: ff4620cd6d5295b4cbc822dfc933737d,
         type: 3}
