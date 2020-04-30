@@ -25,8 +25,7 @@ public class EnemyWithAI : Creature
 
     private void MovenentAI()
     {
-        if (!TryGetDirection(out direction)) return;
-        if (playersFinder.DistanceToNearest < curAggroDistance)
+        if (TryGetDirection(out direction) && playersFinder.DistanceToNearest < curAggroDistance)
             agent.SetDestination(playersFinder.NearestObject.transform.position);
         else
         {

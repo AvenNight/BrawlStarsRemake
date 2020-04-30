@@ -10,8 +10,7 @@ public class Player : Creature
 
     private void Start()
     {
-        GameObject.FindObjectOfType<CameraController>().Target = this.transform;
-
+        FindObjectOfType<CameraController>().Target = this.transform;
 
         enemyFinder = new CreatureFinder(this.gameObject, enemyTags);
         curWeapon.EnemyTags = enemyTags;

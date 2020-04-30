@@ -311,7 +311,7 @@ MonoBehaviour:
   Angle: 45
   Distance: 10
   Enable: 0
-  Color: {r: 0, g: 0, b: 0, a: 0}
+  Color: {r: 0, g: 0.8, b: 1, a: 0.5019608}
 --- !u!114 &1950750350540682890
 MonoBehaviour:
   m_ObjectHideFlags: 0

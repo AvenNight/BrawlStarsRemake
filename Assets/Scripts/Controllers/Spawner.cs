@@ -6,10 +6,12 @@ public class Spawner : MonoBehaviour
     [SerializeField] private Player playerPrefab;
     [SerializeField] private EnemyWithAI enemyPrefab;
     private Player curPlayer;
+    private Vector3 playerPosition;
 
     private void Start()
     {
         curPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        playerPosition = curPlayer.transform.position;
         curPlayer.DeathNotify += () => StartCoroutine("RespawnPlayer");
     }
 
@@ -18,7 +20,7 @@ public class Spawner : MonoBehaviour
         yield return new WaitForSeconds(3);
         if (GameObject.FindGameObjectWithTag("Player") == null)
         {
-            curPlayer = Instantiate(playerPrefab, playerPrefab.transform.position, Quaternion.identity);
+            curPlayer = Instantiate(playerPrefab, playerPosition, Quaternion.identity);
             curPlayer.DeathNotify += () => StartCoroutine("RespawnPlayer");
         }
     }

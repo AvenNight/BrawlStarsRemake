@@ -38,10 +38,7 @@ public class JoybuttonPlayer : MonoBehaviour
     public void FixedUpdate()
     {
         if (joybutton.Holded && joybutton.Input != Vector2.zero && DrawCone.Enable == false)
-        {
             DrawCone.Enable = true;
-            DrawCone.Color = new Color(0, 1, 1, 0.4f);
-        }
         if (joybutton.Direction == Vector2.zero) return;
         transform.forward = Direction;
     }
