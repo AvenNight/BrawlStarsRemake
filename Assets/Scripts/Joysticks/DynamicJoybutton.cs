@@ -10,12 +10,14 @@ public class DynamicJoybutton : DynamicJoystick
     [HideInInspector]
     public bool Holded;
     [SerializeField]
-    private float holdTimeSec = 2f;
+    private float holdTimeSec;
 
-    public event Action PressNotify;
+    public event Action PressDownNotify;
+    public event Action PressUpNotify;
 
     public override void OnPointerDown(PointerEventData eventData)
     {
+        PressDownNotify?.Invoke();
         Pressed = true;
         StartCoroutine("HooldingTime");
         base.OnPointerDown(eventData);
@@ -23,7 +25,7 @@ public class DynamicJoybutton : DynamicJoystick
 
     public override void OnPointerUp(PointerEventData eventData)
     {
-        PressNotify?.Invoke();
+        PressUpNotify?.Invoke();
         Pressed = false;
         Holded = false;
         StopCoroutine("HooldingTime");
@@ -34,5 +36,6 @@ public class DynamicJoybutton : DynamicJoystick
     {
         yield return new WaitForSeconds(holdTimeSec);
         Holded = Pressed;
+        //Holded = input != Vector2.zero && Pressed;
     }
 }

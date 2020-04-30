@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 694f20c0155b3a049a83cde7e9c6ba25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Distance: 10
+  curWeapon: {fileID: 2699682695140193260}
   DrawCone: {fileID: -447218543398403855}
 --- !u!114 &2699682695140193260
 MonoBehaviour:
@@ -268,6 +268,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c142b220a3389b4da502e5d5b90b640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distance: 10
+  angle: 45
   bullet: {fileID: 3601436374049095482, guid: 9f57110cabae8984dab43b034e61b6a8, type: 3}
   enemyTags:
   - Enemy
@@ -275,8 +277,6 @@ MonoBehaviour:
   isRndDmg: 1
   bulletCount: 8
   speed: 20
-  distance: 10
-  angle: 45
 --- !u!54 &-367319732828624355
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -308,7 +308,7 @@ MonoBehaviour:
   Angle: 45
   Distance: 10
   Enable: 0
-  color: {r: 0, g: 0, b: 0, a: 0}
+  Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1001 &589532313769614530
 PrefabInstance:
   m_ObjectHideFlags: 0

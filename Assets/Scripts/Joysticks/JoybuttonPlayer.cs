@@ -6,7 +6,7 @@ public class JoybuttonPlayer : MonoBehaviour
     private DynamicJoybutton joybutton;
     public Vector3 Direction => Vector3.forward * joybutton.Vertical + Vector3.right * joybutton.Horizontal;
 
-    public float Distance = 10f;
+    private RangeWeapon curWeapon;
     public DrawCone DrawCone;
 
     public event Action<Vector3> HoldShootNotify;
@@ -14,12 +14,21 @@ public class JoybuttonPlayer : MonoBehaviour
 
     private void Start()
     {
+        curWeapon = this.GetComponent<PlayerController>().curWeapon;
         joybutton = FindObjectOfType<DynamicJoybutton>();
-        joybutton.PressNotify += Joybutton_PressNotify;
+        joybutton.PressUpNotify += Joybutton_PressUpNotify;
+        joybutton.PressDownNotify += Joybutton_PressDownNotify;
     }
 
-    private void Joybutton_PressNotify()
+    private void Joybutton_PressDownNotify()
     {
+        DrawCone.Distance = curWeapon.Distance;
+        DrawCone.Angle = curWeapon.Angle;
+    }
+
+    private void Joybutton_PressUpNotify()
+    {
+        DrawCone.Enable = false;
         if (joybutton.Holded)
             HoldShootNotify?.Invoke(Direction);
         else
@@ -28,15 +37,18 @@ public class JoybuttonPlayer : MonoBehaviour
 
     public void FixedUpdate()
     {
-        if (joybutton.Direction == Vector2.zero)
+        if (joybutton.Holded && joybutton.Input != Vector2.zero && DrawCone.Enable == false)
         {
-            DrawCone.Enable = false;
-            return;
+            DrawCone.Enable = true;
+            DrawCone.Color = new Color(0, 0, 1, 0.4f);
         }
-        DrawCone.Color = joybutton.Holded ? new Color(0, 0, 1, 0.33f) : new Color(1, 0, 0, 0.33f);
-        DrawCone.Enable = true;
+        if (joybutton.Direction == Vector2.zero) return;
         transform.forward = Direction;
     }
 
-    private void OnDestroy() => joybutton.PressNotify -= Joybutton_PressNotify;
+    private void OnDestroy()
+    {
+        joybutton.PressUpNotify -= Joybutton_PressUpNotify;
+        joybutton.PressDownNotify -= Joybutton_PressDownNotify;
+    }
 }

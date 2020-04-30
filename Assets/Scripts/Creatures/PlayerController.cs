@@ -2,10 +2,8 @@
 
 public class PlayerController : Creature
 {
-    [SerializeField]
-    private RangeWeapon curWeapon;
-
     //private HashSet<RangeWeapon> weapons; // была идея менять текущее оружие выбирая из списка
+    public RangeWeapon curWeapon;
 
     [SerializeField]
     private JoybuttonPlayer shotButton;
@@ -21,10 +19,13 @@ public class PlayerController : Creature
     }
 
     private void ShotButton_HoldShootNotify(Vector3 direction) =>
-        curWeapon.Shoot(direction);
+        curWeapon.Shoot(direction != Vector3.zero ? direction : ShotDirection);
 
     private void ShotButton_ShootNotify() =>
-        curWeapon.Shoot(enemyFinder.Objects.Count == 0 ? shotButton.Direction : enemyFinder.Direction);
+        curWeapon.Shoot(ShotDirection);
+
+    private Vector3 ShotDirection =>
+        enemyFinder.Objects.Count == 0 ? shotButton.Direction : enemyFinder.Direction;
 
     private void FixedUpdate()
     {

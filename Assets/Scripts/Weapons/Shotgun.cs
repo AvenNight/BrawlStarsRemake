@@ -14,11 +14,7 @@ public class Shotgun : RangeWeapon
     [SerializeField]
     private int bulletCount;
     [SerializeField]
-    private float speed;
-    [SerializeField]
-    private float distance;
-    [SerializeField]
-    private float angle;
+    public float speed;
 
     private void Start()
     {

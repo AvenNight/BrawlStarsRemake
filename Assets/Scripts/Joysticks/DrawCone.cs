@@ -2,9 +2,13 @@
 
 public class DrawCone : MonoBehaviour
 {
+    [HideInInspector]
     public float Angle;
+    [HideInInspector]
     public float Distance;
+    [HideInInspector]
     public bool Enable;
+    [HideInInspector]
     public Color Color;
 
     private Transform tf;

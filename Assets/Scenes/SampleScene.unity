@@ -406,7 +406,12 @@ PrefabInstance:
     - target: {fileID: -8319348658774832958, guid: 0047e3159a7b7064aa4cb8b3026519d8,
         type: 3}
       propertyPath: moveThreshold
-      value: 100
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8319348658774832958, guid: 0047e3159a7b7064aa4cb8b3026519d8,
+        type: 3}
+      propertyPath: holdTimeSec
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 2445708120877852820, guid: 0047e3159a7b7064aa4cb8b3026519d8,
         type: 3}
@@ -518,7 +523,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dynamic Joybutton
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2445708120877852822, guid: 0047e3159a7b7064aa4cb8b3026519d8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0047e3159a7b7064aa4cb8b3026519d8, type: 3}
 --- !u!4 &674051532 stripped
 Transform:
@@ -879,7 +885,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dynamic Joystick
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6107630250092852258, guid: 56fae09712773584fb63896d473a98ee, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 56fae09712773584fb63896d473a98ee, type: 3}
 --- !u!1 &1552051313
 GameObject:
