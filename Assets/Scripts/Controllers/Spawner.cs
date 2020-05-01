@@ -12,8 +12,10 @@ public class Spawner : MonoBehaviour
     {
         curPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         playerPosition = curPlayer.transform.position;
-        curPlayer.DeathNotify += () => StartCoroutine("RespawnPlayer");
+        curPlayer.DeathNotify += Respawn;
     }
+
+    private void Respawn() => StartCoroutine("RespawnPlayer");
 
     private IEnumerator RespawnPlayer()
     {
@@ -21,7 +23,9 @@ public class Spawner : MonoBehaviour
         if (GameObject.FindGameObjectWithTag("Player") == null)
         {
             curPlayer = Instantiate(playerPrefab, playerPosition, Quaternion.identity);
-            curPlayer.DeathNotify += () => StartCoroutine("RespawnPlayer");
+            curPlayer.DeathNotify += Respawn;
         }
     }
+
+    private void OnDestroy() => curPlayer.DeathNotify -= Respawn;
 }
