@@ -8,7 +8,7 @@ public class Spawner : MonoBehaviour
     private Player curPlayer;
     private Vector3 playerPosition;
 
-    private void Start()
+    public void StartSpawner()
     {
         curPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         playerPosition = curPlayer.transform.position;

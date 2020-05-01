@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 3962016783313354642}
-  defence: 10
+  defence: 15
   speed: 5
   maxHp: 100
   enemyTags:

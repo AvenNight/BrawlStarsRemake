@@ -36,6 +36,7 @@ public class SceneCreator : MonoBehaviour
             }
             curPos.x += wallSize;
         }
+        FindObjectOfType<Spawner>()?.StartSpawner();
     }
 
     public void Refresh(char[,] map)
@@ -62,8 +63,22 @@ public class SceneCreator : MonoBehaviour
 
     private void CreateObject(MapObjectData mapObj)
     {
-        if (mapObj == null) return;
+        if (mapObj == null || CheckPlayer(mapObj)) return;
         var curObj = Instantiate(mapObj.Prefab, mapObj.Location, Quaternion.identity);
         curObj.transform.SetParent(mapObj.Parrent.transform, true);
+    }
+
+    private bool CheckPlayer(MapObjectData mapObj) // костыль на скорую руку для кнопки Restart, которой в игре не будет
+    {
+        if (mapObj.Prefab == player)
+        {
+            var p = GameObject.FindGameObjectWithTag("Player");
+            if (p != null)
+            {
+                p.transform.position = mapObj.Location;
+                return true;
+            }
+        }
+        return false;
     }
 }
