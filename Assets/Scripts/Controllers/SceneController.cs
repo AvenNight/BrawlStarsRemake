@@ -1,13 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class SceneController : MonoBehaviour
 {
-    [SerializeField]
-    private SceneCreator sceneCreator;
-
-    [SerializeField]
-    private NavMeshSurface navMesh;
+    [SerializeField] private SceneCreator sceneCreator;
+    [SerializeField] private NavMeshSurface navMesh;
 
     private char[,] curMap = Levels.Level5;
 

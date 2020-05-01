@@ -1,41 +1,34 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class ExitScript : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject player;
-
-    private List<GameObject> players;
-
-    private float activateDistance => 1f;
-    public float distanceToPlayer => player.GetDistanceTo(this.gameObject);
-    private bool allPlayersOnExit
-    {
-        get
-        {
-            var result = players.All(p => p.GetDistanceTo(this.gameObject) <= activateDistance);
-            return result;
-        }
-    }
+    [SerializeField] private GameObject gameOverText;
 
     private bool levelComplete = false;
     public bool LevelComplite => levelComplete;
 
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        players = GameObject.FindGameObjectsWithTag("Player").ToList();
-        foreach (var e in players)
-            e.GetComponent<Creature>().DeathNotify += () => players.Remove(e);
-    }
-
-    void Update()
-    {
-        if (allPlayersOnExit && !levelComplete)
+        var tag = other.gameObject.tag;
+        if (tag == "Player" && !levelComplete)
         {
             levelComplete = true;
+            StartCoroutine("GameOver");
             Debug.Log("FINISH");
         }
+    }
+
+    private IEnumerator GameOver()
+    {
+        gameOverText.SetActive(true);
+        yield return new WaitForSeconds(10f);
+        gameOverText.SetActive(false);
+        Destroy(this.gameObject);
     }
 }
